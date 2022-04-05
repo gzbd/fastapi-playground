@@ -46,3 +46,18 @@ def fixtures(dirpath: str):
         return wrapped
 
     return wrapper
+
+
+def requires_db(func):
+    async def wrapped(*args, **kwargs):
+        await async_db.connect()
+
+        try:
+            result = await func(*args, **kwargs)
+        except AssertionError as ex:
+            raise ex
+        finally:
+            await async_db.disconnect()
+        return result
+
+    return wrapped
