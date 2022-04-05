@@ -4,7 +4,7 @@ import glob
 import functools
 from typing import Any
 
-from databases import Database
+from db import async_db
 
 
 def load_all_fixture_files(dirpath: str) -> dict[str, list[dict]]:
@@ -26,7 +26,7 @@ def to_sql(tname: str, items: list[dict[Any, Any]]) -> str:
     return f"INSERT INTO {tname}({', '.join(items[0].keys())}) VALUES ({', '.join(as_param(items[0].keys()))});"
 
 
-def fixtures(dirpath: str, async_db: Database):
+def fixtures(dirpath: str):
     def wrapper(func):
         async def wrapped(*args, **kwargs):
             fixtures = load_all_fixture_files(dirpath)

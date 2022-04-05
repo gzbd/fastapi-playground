@@ -25,7 +25,7 @@ class TestFeatureFlags(IsolatedAsyncioTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), [])
 
-    @fixtures("fixtures/feature-flags", async_db=async_db)
+    @fixtures("fixtures/feature-flags")
     async def test_get_with_fixtures(self):
         async with AsyncClient(app=app, base_url="http://test") as ac:
             response = await ac.get("/feature-flags/")
