@@ -3,7 +3,7 @@ import tempfile
 import os
 import yaml
 
-from db_fixtures import load_fixture_file, load_all_fixture_files, to_sql
+from .db_fixtures import load_fixture_file, load_all_fixture_files, to_sql
 
 
 class TestLoadFixtureFile(unittest.TestCase):

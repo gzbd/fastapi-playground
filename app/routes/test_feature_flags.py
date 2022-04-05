@@ -1,9 +1,9 @@
 from unittest import IsolatedAsyncioTestCase
 from httpx import AsyncClient
 
-from main import app
-from feature_flags import router
-from db_fixtures import fixtures, requires_db
+from ..main import app
+from .feature_flags import router
+from ..db.db_fixtures import fixtures, requires_db
 
 
 app.include_router(router)

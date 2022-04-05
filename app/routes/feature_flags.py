@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from db import async_db
+from ..db.db import async_db
 
 
 class FeatureFlag(BaseModel):

@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 
-from db import engine, async_db
+from .db.db import engine, async_db
 from sqlalchemy.sql import text
 import time
 
 app = FastAPI()
 
-from feature_flags import router
+from .routes.feature_flags import router
 
 app.include_router(router)
 

@@ -4,7 +4,7 @@ import glob
 import functools
 from typing import Any
 
-from db import async_db
+from .db import async_db
 
 
 def load_all_fixture_files(dirpath: str) -> dict[str, list[dict]]:
