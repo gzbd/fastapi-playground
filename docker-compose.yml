@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  postgres:
+    image: 'postgres:12.4-alpine'
+    # command: -c fsync=off -c synchronous_commit=off -c full_page_writes=off
+    tmpfs:
+      - /var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_DB=db_test
+      - POSTGRES_PASSWORD=pass
+    ports:
+      - "54320:5432"

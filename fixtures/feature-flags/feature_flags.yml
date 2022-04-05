@@ -1,0 +1,4 @@
+- name: feature1
+  enabled: true
+- name: feature2
+  enabled: false
